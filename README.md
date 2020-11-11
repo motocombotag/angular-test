@@ -1,4 +1,6 @@
-# AngularTest
+# Angular Test
+
+This is a simple project that fetches the latest 10 commits from [draft.js](https://github.com/facebook/draft-js) and displays them in a basic format. The project uses [GitHub API](https://developer.github.com/v3/) and [bootstrap](https://getbootstrap.com/).
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
 
@@ -19,7 +21,7 @@ Or,
 ng serve
 ```
 
-2. Navigate to `http://localhost:4200/`. (The app will automatically reload if you change any of the source files.)
+2. Navigate to [http://localhost:4200/](http://localhost:4200/). (The app will automatically reload if you change any of the source files.)
 
 ## Code scaffolding
 
