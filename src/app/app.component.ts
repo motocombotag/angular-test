@@ -19,7 +19,11 @@ export class AppComponent implements OnInit {
 
   constructor() {}
 
-  private onProcessCommits(data: any[]): IResult[] {
+  ngOnInit(): void {
+    this.fetchCommits();
+  }
+
+  private processCommits(data: any[]): IResult[] {
     const result: IResult[] = data.map((s) => ({
       authorName: s.commit.author.name,
       authorEmail: s.commit.author.email,
@@ -31,9 +35,9 @@ export class AppComponent implements OnInit {
     return result;
   }
 
-  public async onFetchCommits(): Promise<void> {
+  private fetchCommits(): void {
     const onDone = (response: AxiosResponse): void => {
-      this.commits = this.onProcessCommits(response.data.slice(0, 10));
+      this.commits = this.processCommits(response.data.slice(0, 10));
     };
 
     const onError = (err: AxiosError): void => {
@@ -45,13 +49,9 @@ export class AppComponent implements OnInit {
       Accept: 'application/vnd.github.v3+json',
     };
 
-    await axios
+    axios
       .get(url, { headers })
       .then(onDone)
       .catch(onError);
-  }
-
-  public ngOnInit(): void {
-    this.onFetchCommits();
   }
 }
