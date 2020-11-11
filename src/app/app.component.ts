@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import axios, { AxiosResponse, AxiosError } from 'axios';
 
-interface IResult {
+interface ICommit {
   authorName: string;
   authorEmail: string;
   date: string;
@@ -15,7 +15,7 @@ interface IResult {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  public commits: IResult[];
+  public commits: ICommit[];
 
   constructor() {}
 
@@ -23,8 +23,8 @@ export class AppComponent implements OnInit {
     this.fetchCommits();
   }
 
-  private processCommits(data: any[]): IResult[] {
-    const result: IResult[] = data.map((s) => ({
+  private processCommits(data: any[]): ICommit[] {
+    const result: ICommit[] = data.map((s) => ({
       authorName: s.commit.author.name,
       authorEmail: s.commit.author.email,
       date: s.commit.author.date,
