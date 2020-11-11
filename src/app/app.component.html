@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="container h-100">
+    <div class="row align-items-center h-100">
+      <div class="col-10 mx-auto">
+        <div class="jumbotron">
+          <h5>
+            The last 10 commits from
+            <a href="https://github.com/facebook/draft-js">https://github.com/facebook/draft-js</a>
+          </h5>
+          <ng-container *ngFor="let commit of commits">
+            <div class="card">
+              <div class="card-body">
+                <pre><b>Author: </b> {{ commit.authorName }}&lt;{{ commit.authorEmail }}&gt;</pre>
+                <pre><b>Date: </b> {{ commit.date }}</pre>
+                <pre><b>Message: </b> {{ commit.message }}</pre>
+                <pre><b>Hash: </b> {{ commit.hash }}</pre>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
